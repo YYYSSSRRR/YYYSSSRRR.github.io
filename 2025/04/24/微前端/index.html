@@ -13,7 +13,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://yyysssrrr.github.io/2025/04/24/ysr/"/>
+    <link rel="canonical" href="https://yyysssrrr.github.io/2025/04/24/微前端/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -23,14 +23,14 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ysr">
-<meta property="og:url" content="https://yyysssrrr.github.io/2025/04/24/ysr/index.html">
+<meta property="og:title" content="微前端">
+<meta property="og:url" content="https://yyysssrrr.github.io/2025/04/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yyysssrrr.github.io/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-04-23T17:31:53.000Z">
-<meta property="article:modified_time" content="2025-04-23T17:31:53.161Z">
+<meta property="article:published_time" content="2025-04-23T16:58:25.335Z">
+<meta property="article:modified_time" content="2025-05-14T04:00:25.722Z">
 <meta property="article:author" content="Yu Shirui">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://yyysssrrr.github.io/images/redefine-og.webp">
@@ -45,7 +45,7 @@
     
     <title>
         
-            ysr | 刁蛮公主的技术blog
+            微前端 | 刁蛮公主的技术blog
         
     </title>
 
@@ -234,7 +234,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">ysr</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">微前端</h1>
 			</div>
 			
 		</div>
@@ -255,15 +255,15 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-04-24 01:31:53</span>
-        <span class="mobile">2025-04-24 01:31:53</span>
+        <span class="desktop">2025-04-24 00:58:25</span>
+        <span class="mobile">2025-04-24 00:58:25</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-04-24 01:31:53</span>
-            <span class="mobile">2025-04-24 01:31:53</span>
+            <span class="desktop">2025-05-14 12:25</span>
+            <span class="mobile">2025-05-14 12:25</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -290,25 +290,40 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			
+			<h2 id="1、微前端是什么？"><a href="#1、微前端是什么？" class="headerlink" title="1、微前端是什么？"></a>1、微前端是什么？</h2><p>微前端是一种类似于微服务的架构，将微服务的理念应用于浏览器端，即将Web应用由单一的单体应用转变为多个小型前端应用聚合为一的应用，每个前端应用可以独立开发，独立运行，独立部署。</p>
+<h2 id="2、为什么会出现微前端？"><a href="#2、为什么会出现微前端？" class="headerlink" title="2、为什么会出现微前端？"></a>2、为什么会出现微前端？</h2><p>(1)为了将庞大的单页面应用（SPA）进行拆分并解耦，每个部分可以单独进行维护和部署。<br>(2)整合历史系统。在许多历史业务中存在老框架，需要结合到新框架中还不能被抛弃，于是可以用微前端将这些系统进行整合，在不修改基本逻辑的同时兼容新老两套系统并行运行。</p>
+<h2 id="3、微前端由哪些模块组成？"><a href="#3、微前端由哪些模块组成？" class="headerlink" title="3、微前端由哪些模块组成？"></a>3、微前端由哪些模块组成？</h2><p>当下微前端主要采用组合式应用路由方案，核心是主从思想，包括一个基座应用和若干个微应用。<br>基座应用大多是一个前端单页面SPA项目，负责应用注册，路由映射，消息下发等，微应用是独立的前端项目。每个微应用都注册到基座应用中，由基座进行管理，但是也可以脱离基座单独访问。</p>
+<h2 id="4、微前端的应用接入："><a href="#4、微前端的应用接入：" class="headerlink" title="4、微前端的应用接入："></a>4、微前端的应用接入：</h2><p>什么应用能够成为子应用接入框架中？因为要做到与技术栈无关，所以只是协议接入，只要在应用中实现bootstrap，mount，unmount三个生命周期钩子并导出这三个函数，框架就知道该如何加载这个子应用。<br>bootstrap：应用初始化时调用一次（只执行一次，适合准备静态资源）<br>mount：每次应用进入时调用（用来挂载子应用内容）<br>unmount：每次应用卸载时调用，用来清理DOM、解绑事件等<br>书写示例：</p>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> app=<span class="literal">null</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">render</span>(<span class="params">props=&#123;&#125;</span>)&#123;</span><br><span class="line">	<span class="keyword">const</span> &#123;container&#125;=props;<span class="comment">//代表要挂载子应用等DOM容器</span></span><br><span class="line">	app=<span class="title class_">ReactDOM</span>.<span class="title function_">createRoot</span>(container?container.<span class="title function_">querySelector</span>(<span class="string">&quot;#root&quot;</span>:<span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;root&quot;</span>)));</span><br><span class="line">	app.<span class="title function_">render</span>(<span class="language-xml"><span class="tag">&lt;<span class="name">App</span>/&gt;</span></span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">bootstrap</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;bootstrap&#x27;</span>);</span><br><span class="line">	<span class="comment">//可以添加任何其他逻辑，主要是准备静态资源等，只执行一次</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">mount</span>(<span class="params">props</span>)&#123;</span><br><span class="line">	<span class="title function_">render</span>(props);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">unmount</span>(<span class="params">props</span>)&#123;</span><br><span class="line">	app.<span class="title function_">unmount</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>props.container决定了子应用是在主基座中运行还是独立运行，如果无container就默认独立运行。主应用在注册子应用时就包含了container，因为子应用会把这三个方法导出到主应用中使用，微应用框架会自动将container传入props，并不需要我们手动操作。</p>
+<h2 id="5、微前端路由的处理："><a href="#5、微前端路由的处理：" class="headerlink" title="5、微前端路由的处理："></a>5、微前端路由的处理：</h2><p>假设主应用注册了两个应用A和B，主应用有两个路由&#x2F;a&#x2F;* 和 &#x2F;b&#x2F;* ，当路由是&#x2F;a时加载a应用，再在a应用中通过路由找到相应页面渲染。如果没有经过处理时最早加载主应用时会面临404和路由报错，因为A的路由系统还没有被加载进来。在qiankun中解决这个问题的方法是借助react-router之类的路由库<br>由主应用配置路由分发，使用react-router-dom管理一级路由<br>App.js(主应用)</p>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//App.js(主应用)</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">BrowserRouter</span>,<span class="title class_">Routes</span>,<span class="title class_">Route</span>&#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="keyword">return</span>(</span><br><span class="line">		<span class="language-xml"><span class="tag">&lt;<span class="name">BrowserRouter</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			//这两个都是挂载子应用的容器</span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/app1/*&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">App1Element</span>/&gt;</span>&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/app2/*&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">App2Element</span>/&gt;</span>&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/<span class="name">BrowserRouter</span>&gt;</span></span></span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>子应用app1的入口文件</p>
+<div class="code-container" data-rel="Js"><figure class="iseeu highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//子应用app1的入口文件</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">BrowserRouter</span>,<span class="title class_">Routes</span>,<span class="title class_">Route</span>&#125; <span class="keyword">from</span> <span class="string">&quot;react-route-dom&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Home</span> <span class="keyword">from</span> <span class="string">&quot;./pages/Home&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Detail</span> <span class="keyword">from</span> <span class="string">&quot;./pages/Detail&quot;</span>;</span><br><span class="line"><span class="comment">//确定是在主基座中作为微应用加载还是作为独立应用加载</span></span><br><span class="line"><span class="keyword">const</span> base=<span class="variable language_">window</span>.<span class="property">__POWERED_BY_QIANKUN</span>?<span class="string">&#x27;/app1&#x27;</span>:<span class="string">&#x27;/&#x27;</span>;</span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>)&#123;</span><br><span class="line">	<span class="keyword">return</span>(</span><br><span class="line">	<span class="comment">//使用basename进行隔离</span></span><br><span class="line">		<span class="language-xml"><span class="tag">&lt;<span class="name">BrowserRouter</span> <span class="attr">basename</span>=<span class="string">&#123;base&#125;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Home</span>/&gt;</span>&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/detail&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Detail</span>/&gt;</span>&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/<span class="name">BrowserRouter</span>&gt;</span></span></span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="6、应用加载的入口"><a href="#6、应用加载的入口" class="headerlink" title="6、应用加载的入口"></a>6、应用加载的入口</h2><p>组合时机：运行时构建，动态加载，这样可以将主子应用完全解耦<br>应用入口：qiankun选用的是HTML</p>
+<h2 id="7、应用隔离："><a href="#7、应用隔离：" class="headerlink" title="7、应用隔离："></a>7、应用隔离：</h2><h3 id="JS隔离："><a href="#JS隔离：" class="headerlink" title="JS隔离："></a>JS隔离：</h3><p>隔离的原因：<br>多个子应用之间可能有变量冲突，污染window对象等问题<br>1、采用快照隔离，就是使用上文的unmount()实现的，在挂载时渲染，应用切换时就删除，恢复原来的环境。但是缺点是只能加载一个应用。<br>2、使用ES6的proxy代理，让子应用里的环境和外面的环境完全隔离</p>
+<h3 id="样式隔离："><a href="#样式隔离：" class="headerlink" title="样式隔离："></a>样式隔离：</h3><p>存在主子应用样式的冲突和子应用之间样式冲突，主要方案：<br>css module，BEM，CSS-in-JS</p>
+<h2 id="8、应用通信："><a href="#8、应用通信：" class="headerlink" title="8、应用通信："></a>8、应用通信：</h2><p>(1) 基于url，在url后的query参数中传递信息。<br>(2) 发布订阅模式，挂一个时间总线，window的CustomEvent是天然的事件总线，在window上监听一个时间，在任意地方派发一个事件就可以实现通信。<br>(3) 基于props传递参数<br>因为微前端尽量在子应用间进行解耦，所以不同子应用间的关联性是很弱的，一般不需要进行通信，都可以独立运行的</p>
+
 		</div>
 
 		
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> ysr</li>
+        <li><strong>Title:</strong> 微前端</li>
         <li><strong>Author:</strong> Yu Shirui</li>
         <li><strong>Created at
-                :</strong> 2025-04-24 01:31:53</li>
+                :</strong> 2025-04-24 00:58:25</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-04-24 01:31:53
+                    :</strong> 2025-05-14 12:00:25
             </li>
         
         <li>
-            <strong>Link:</strong> https://redefine.ohevan.com/2025/04/24/ysr/
+            <strong>Link:</strong> https://redefine.ohevan.com/2025/04/24/微前端/
         </li>
         <li>
             <strong>
@@ -333,11 +348,23 @@
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/2025/04/24/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">发布订阅者模式与观察者模式</span>
+						<span class="post-nav-item">Prev posts</span>
+					</span>
+				</a>
+			</div>
+			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/2025/04/24/nihao/">
+				<a class="next" rel="next" href="/2025/04/23/hello-world/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item"></span>
+						<span class="post-nav-title-item">Hello World</span>
 						<span class="post-nav-item">Next posts</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -401,8 +428,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">ysr</div>
-		
+		<div class="page-title">微前端</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E5%BE%AE%E5%89%8D%E7%AB%AF%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-text">1、微前端是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E5%87%BA%E7%8E%B0%E5%BE%AE%E5%89%8D%E7%AB%AF%EF%BC%9F"><span class="nav-text">2、为什么会出现微前端？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%94%B1%E5%93%AA%E4%BA%9B%E6%A8%A1%E5%9D%97%E7%BB%84%E6%88%90%EF%BC%9F"><span class="nav-text">3、微前端由哪些模块组成？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E5%BE%AE%E5%89%8D%E7%AB%AF%E7%9A%84%E5%BA%94%E7%94%A8%E6%8E%A5%E5%85%A5%EF%BC%9A"><span class="nav-text">4、微前端的应用接入：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E5%BE%AE%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E7%9A%84%E5%A4%84%E7%90%86%EF%BC%9A"><span class="nav-text">5、微前端路由的处理：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E5%BA%94%E7%94%A8%E5%8A%A0%E8%BD%BD%E7%9A%84%E5%85%A5%E5%8F%A3"><span class="nav-text">6、应用加载的入口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7%E3%80%81%E5%BA%94%E7%94%A8%E9%9A%94%E7%A6%BB%EF%BC%9A"><span class="nav-text">7、应用隔离：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JS%E9%9A%94%E7%A6%BB%EF%BC%9A"><span class="nav-text">JS隔离：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E5%BC%8F%E9%9A%94%E7%A6%BB%EF%BC%9A"><span class="nav-text">样式隔离：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8%E3%80%81%E5%BA%94%E7%94%A8%E9%80%9A%E4%BF%A1%EF%BC%9A"><span class="nav-text">8、应用通信：</span></a></li></ol>
 
 	</div>
 </div>
