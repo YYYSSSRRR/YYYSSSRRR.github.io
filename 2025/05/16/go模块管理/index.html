@@ -13,7 +13,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="https://yyysssrrr.github.io/2025/04/23/hello-world/"/>
+    <link rel="canonical" href="https://yyysssrrr.github.io/2025/05/16/go模块管理/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -23,14 +23,14 @@
         
         <meta name="description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://yyysssrrr.github.io/2025/04/23/hello-world/index.html">
+<meta property="og:title" content="Go语言的模块管理">
+<meta property="og:url" content="https://yyysssrrr.github.io/2025/05/16/go%E6%A8%A1%E5%9D%97%E7%AE%A1%E7%90%86/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Hexo Theme Redefine, Redefine Your Hexo Journey.">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://yyysssrrr.github.io/images/redefine-og.webp">
-<meta property="article:published_time" content="2025-04-23T15:46:23.742Z">
-<meta property="article:modified_time" content="2025-04-23T15:46:23.742Z">
+<meta property="article:published_time" content="2025-05-16T15:37:30.449Z">
+<meta property="article:modified_time" content="2025-05-16T15:38:21.183Z">
 <meta property="article:author" content="Yu Shirui">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://yyysssrrr.github.io/images/redefine-og.webp">
@@ -45,7 +45,7 @@
     
     <title>
         
-            Hello World | 刁蛮公主的技术blog
+            Go语言的模块管理 | 刁蛮公主的技术blog
         
     </title>
 
@@ -234,7 +234,7 @@
 		<div class="article-title relative w-full">
 			
 			<div class="w-full flex items-center pt-6 justify-start">
-				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Hello World</h1>
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Go语言的模块管理</h1>
 			</div>
 			
 		</div>
@@ -255,15 +255,15 @@
 					<div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2025-04-23 23:46:23</span>
-        <span class="mobile">2025-04-23 23:46:23</span>
+        <span class="desktop">2025-05-16 23:37:30</span>
+        <span class="mobile">2025-05-16 23:37:30</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2025-04-23 23:46:23</span>
-            <span class="mobile">2025-04-23 23:46:23</span>
+            <span class="desktop">2025-05-16 23:38:21</span>
+            <span class="mobile">2025-05-16 23:38:21</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -290,19 +290,34 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+			<h1 id="使用go-modules的方式管理go模块"><a href="#使用go-modules的方式管理go模块" class="headerlink" title="使用go modules的方式管理go模块"></a>使用go modules的方式管理go模块</h1><p>创建目录结构：<br>包含两个模块ModuleA，ModuleB和一个调用程序Demo<br>—— Demo<br>   |__ Demo.go<br>   |__ go.mod<br>___ ModuleA<br>   |__ A.go<br>   |__ go.mod<br>___ ModuleB<br>   |__ B.go<br>   |__ go.mod</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Demo</span><br><span class="line">go mod init github.com/YYYSSSRRR/HelloGO/Demo</span><br><span class="line"><span class="built_in">cd</span> ../ModuleA</span><br><span class="line">go mod init github.com/YYYSSSRRR/HelloGO/ModuleA</span><br><span class="line"><span class="built_in">cd</span> ../ModuleB</span><br><span class="line">go mod init github.com/YYYSSSRRR/HelloGO/ModuleB</span><br></pre></td></tr></table></figure></div>
+<p>先将每个模块都用go mod init 创建一个go.mod文件（go modules机制要求每个模块的根目录都必须有一个go.mod文件，这样程序才能识别这是一个模块<br><strong>每个目录下都只能有一个package包名！包名可以自定义，但是最好与目录名称相同。最终只有一个package main，func main()是最终的可执行文件</strong></p>
+<p><em>B.go的代码：</em></p>
+<div class="code-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//B.go的代码：</span></span><br><span class="line"><span class="keyword">package</span> ModuleB</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Greet</span><span class="params">(name <span class="type">string</span>)</span></span> <span class="type">string</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">&quot;Hello&quot;</span>+name</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p><em>A.go的代码</em> A中引用了ModuleB模块</p>
+<div class="code-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//A.go</span></span><br><span class="line"><span class="keyword">package</span> ModuleA</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="comment">//这里的import是到对应的地址下载对应的模块</span></span><br><span class="line">	<span class="string">&quot;github.com/YYYSSSRRR/HelloGO/ModuleB&quot;</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">OutputMsg</span><span class="params">(str <span class="type">string</span>)</span></span>&#123;</span><br><span class="line">	fmt.Println(ModuleB.Greet(str))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>Demo.go代码：</p>
+<div class="code-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Demo.go</span></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;github.com/YYYSSSRRR/HelloGO/ModuleA&quot;</span></span><br><span class="line">	<span class="string">&quot;github.com/YYYSSSRRR/HelloGO/ModuleB&quot;</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	ModuleA.OutputMsg(<span class="string">&quot;李宁&quot;</span>)</span><br><span class="line">	fmt.Println(ModuleB.Greet(<span class="string">&quot;Bill&quot;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+<p>但是此时若还没有上传远程仓库，就无法找到ModuleB模块，编译器报错<br>解决方案是在ModuleA的go.mod文件中加入replace语句，将地址映射到本地模块目录中，而跳过从远程仓库下载</p>
+<div class="code-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//go.mod(ModuleA)</span></span><br><span class="line">require github.com/YYYSSSRRR/HelloGO/ModuleB</span><br><span class="line">replace github.com/YYYSSSRRR/HelloGO/ModuleB =&gt;../ModuleB</span><br></pre></td></tr></table></figure></div>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<div class="code-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//go.mod(Demo)</span></span><br><span class="line">require github.com/YYYSSSRRR/HelloGO/ModuleB</span><br><span class="line">replace github.com/YYYSSSRRR/HelloGO/ModuleB =&gt;../ModuleB</span><br><span class="line"></span><br><span class="line">require github.com/YYYSSSRRR/HelloGO/ModuleA</span><br><span class="line">replace github.com/YYYSSSRRR/HelloGO/ModuleA =&gt;../ModuleA</span><br></pre></td></tr></table></figure></div>
+<p>使用go modules方式管理模块的问题：ModuleB在文件中被引用了两次，如果需要更改路径就需要修改很多。</p>
+<h1 id="使用工作区管理Go模块"><a href="#使用工作区管理Go模块" class="headerlink" title="使用工作区管理Go模块"></a>使用工作区管理Go模块</h1><p>先进入项目根目录，执行下列命令创建go.work文件</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go work init ModuleA ModuleB Demo</span><br></pre></td></tr></table></figure></div>
+<p>创建的go.work 文件内容：</p>
+<div class="code-container" data-rel="Go"><figure class="iseeu highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> <span class="number">1.24</span><span class="number">.3</span></span><br><span class="line">use (</span><br><span class="line">	./Demo</span><br><span class="line">	./ModuleA</span><br><span class="line">	./ModuleB</span><br><span class="line">)</span><br></pre></td></tr></table></figure></div>
+<p>当我运行<code>go run Demo.go</code>时工作区自动解析依赖流程：<br>1、读取go.work文件，确定本地模块的位置<br>2、将导入路径（如github.com&#x2F;YYYSSSRRR&#x2F;HelloGO&#x2F;ModuleB）自动映射到本地的.&#x2F;ModuleB<br>3、忽略go.mod中的replace指令</p>
+<h2 id="⚠️go-work的映射时如何实现的？"><a href="#⚠️go-work的映射时如何实现的？" class="headerlink" title="⚠️go.work的映射时如何实现的？"></a>⚠️go.work的映射时如何实现的？</h2><p>(1)定位go.work文件<br>(2)解析use指令中的每个本地路径，检查路径是否存在且是一个有效模块，获取声明的模块路径（如github.com&#x2F;YYYSSSRRR&#x2F;HelloGO&#x2F;ModuleB），在内存中建立一个模块路径到本地文件的一个映射表<br>(3)在依赖解析时优先使用go.work本地映射，go.mod中的require和replace可以全部删除<br>go.work中的本地路径可以是未发布的代码，如果发布之后就可以直接import模块路径，正式开发环境中并不会受到go.work影响</p>
+<h1 id="将代码正式上传到远程仓库中"><a href="#将代码正式上传到远程仓库中" class="headerlink" title="将代码正式上传到远程仓库中"></a>将代码正式上传到远程仓库中</h1><p>单仓库包含多个子模块：使用Git Tag+子目录路径<br><strong>1、提交代码并打tag</strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#提交所有内容</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;add ModuleA and ModuleB&quot;</span></span><br><span class="line"><span class="comment">#打tag用于ModuleA</span></span><br><span class="line">git tag ModuleB/v0.1.0</span><br><span class="line"><span class="comment">#推送所有tags</span></span><br><span class="line">git push origin --tags</span><br></pre></td></tr></table></figure></div>
+<p><strong>Tag 必须是 子模块名&#x2F;版本号 的格式！</strong> 否则 Go 无法解析子模块。<br>在ModuleA中使用时，不需要replace，直接运行</p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ModuleA</span><br><span class="line">go mod tidy</span><br></pre></td></tr></table></figure></div>
+<p>为什么需要使用go mod tidy?<br>自动清除没用的依赖和添加漏掉的依赖（import但没写到go.mod中）<br>保证和go.sum完整一致<br>在引入新模块，删除import引用，升级依赖等时候要用</p>
+<h1 id="在其他项目中使用go-get引用上传到github的模块"><a href="#在其他项目中使用go-get引用上传到github的模块" class="headerlink" title="在其他项目中使用go get引用上传到github的模块"></a>在其他项目中使用go get引用上传到github的模块</h1><p><strong>1、使用go mod init初始化创建go.mod文件</strong><br><strong>2、用go get拉取远程仓库的模块</strong></p>
+<div class="code-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">go get github.com/YYYSSSRRR/HelloGo/ModuleB</span><br></pre></td></tr></table></figure></div>
+<p>自动在go.mod和go.sum中添加此模块<br><strong>3、在文件中import，代码中就直接可以使用了</strong></p>
 
 		</div>
 
@@ -310,18 +325,18 @@
 		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
 			<div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> Hello World</li>
+        <li><strong>Title:</strong> Go语言的模块管理</li>
         <li><strong>Author:</strong> Yu Shirui</li>
         <li><strong>Created at
-                :</strong> 2025-04-23 23:46:23</li>
+                :</strong> 2025-05-16 23:37:30</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2025-04-23 23:46:23
+                    :</strong> 2025-05-16 23:38:21
             </li>
         
         <li>
-            <strong>Link:</strong> https://redefine.ohevan.com/2025/04/23/hello-world/
+            <strong>Link:</strong> https://redefine.ohevan.com/2025/05/16/go模块管理/
         </li>
         <li>
             <strong>
@@ -346,18 +361,18 @@
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
-			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="prev" rel="prev" href="/2025/04/24/%E5%BE%AE%E5%89%8D%E7%AB%AF/">
-					<span class="left arrow-icon flex justify-center items-center">
-						<i class="fa-solid fa-chevron-left"></i>
-					</span>
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/2025/04/24/%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E8%80%85%E6%A8%A1%E5%BC%8F%E4%B8%8E%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">微前端</span>
-						<span class="post-nav-item">Prev posts</span>
+						<span class="post-nav-title-item">发布订阅者模式与观察者模式</span>
+						<span class="post-nav-item">Next posts</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
 					</span>
 				</a>
 			</div>
-			
 			
 		</div>
 		
@@ -414,8 +429,8 @@
 		<div class="post-toc-wrap">
 	<div class="post-toc">
 		<div class="toc-title">On this page</div>
-		<div class="page-title">Hello World</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol>
+		<div class="page-title">Go语言的模块管理</div>
+		<ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8go-modules%E7%9A%84%E6%96%B9%E5%BC%8F%E7%AE%A1%E7%90%86go%E6%A8%A1%E5%9D%97"><span class="nav-text">使用go modules的方式管理go模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E5%B7%A5%E4%BD%9C%E5%8C%BA%E7%AE%A1%E7%90%86Go%E6%A8%A1%E5%9D%97"><span class="nav-text">使用工作区管理Go模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9A%A0%EF%B8%8Fgo-work%E7%9A%84%E6%98%A0%E5%B0%84%E6%97%B6%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84%EF%BC%9F"><span class="nav-text">⚠️go.work的映射时如何实现的？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%86%E4%BB%A3%E7%A0%81%E6%AD%A3%E5%BC%8F%E4%B8%8A%E4%BC%A0%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%AD"><span class="nav-text">将代码正式上传到远程仓库中</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8%E5%85%B6%E4%BB%96%E9%A1%B9%E7%9B%AE%E4%B8%AD%E4%BD%BF%E7%94%A8go-get%E5%BC%95%E7%94%A8%E4%B8%8A%E4%BC%A0%E5%88%B0github%E7%9A%84%E6%A8%A1%E5%9D%97"><span class="nav-text">在其他项目中使用go get引用上传到github的模块</span></a></li></ol>
 
 	</div>
 </div>
